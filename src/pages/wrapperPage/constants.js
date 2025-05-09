@@ -135,3 +135,7 @@ export const policiesConsent = [
         expiryDate: '24/06/2020'
     }
 ];
+
+export const companyName = 'WeNxt Tech'
+
+export const customCol = 'WeNxt Tech'

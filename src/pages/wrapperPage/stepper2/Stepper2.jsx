@@ -5,6 +5,7 @@ import { CalendarDays } from 'lucide-react'
 import AITareqButton from '../../../components/AITareqButton/AITareqButton'
 import CancelButton from '../../../components/cancelButton/CancelButton'
 import { useNavigate } from 'react-router-dom'
+import { customCol } from '../constants'
 
 const Stepper2 = () => {
     const navigate = useNavigate();
@@ -25,11 +26,11 @@ const Stepper2 = () => {
             </div>
             <div className='btn_container_s2'>
                 <div className='main-btns'>
-                    <CancelButton onClick={() => navigate('/login')}/>
-                    <AITareqButton onClick={() => navigate('/planDetails')} />
+                    <CancelButton onClick={() => navigate('/login')} />
+                    <AITareqButton />
                 </div>
                 <p className='footer_text'>Continue to
-                    <span> YOUR LFI </span>
+                    <span> {customCol} </span>
                     to share your insurance policy information under these terms</p>
             </div>
         </>

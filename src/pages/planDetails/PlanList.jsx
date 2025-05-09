@@ -1,10 +1,11 @@
 import React from 'react'
+import { companyName } from '../wrapperPage/constants'
 
 const PlanList = () => {
     return (
         <div className="details_container">
             <div className="header">
-                <div className="selected_lfi">[SELECTED LFI]</div>
+                <div className="selected_lfi">{companyName}</div>
                 <div className="premium_info">
                     <div className="premium_label">Total Premium</div>
                     <div className="premium_value">AED 735</div>

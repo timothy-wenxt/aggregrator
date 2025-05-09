@@ -37,6 +37,10 @@ body, html {
   font-weight: bold !important;
 }
 
+.summary-btn{
+  background-color: green !important;
+}
+
 /* Add responsiveness to button and input fields */
 @media (max-width: 768px) {
   .redirect-container {

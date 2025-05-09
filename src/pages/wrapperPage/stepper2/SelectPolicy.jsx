@@ -1,12 +1,12 @@
 import { Checkbox } from 'antd'
 import { CalendarDays } from 'lucide-react'
 import React from 'react'
-import { selectPolicy } from '../constants'
+import { companyName, selectPolicy } from '../constants'
 
 const SelectPolicy = () => {
     return (
         <>
-            <p className='title_text'>Select Policy(s) to share information with [TPP Trading Name]</p>
+            <p className='title_text'>Select Policy(s) to share information with {companyName}</p>
             <div className='card_structure'>
                 {selectPolicy?.map((item, index) => (
                     <div className='policy_cards' key={index}>

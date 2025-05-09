@@ -9,41 +9,41 @@ const LoginScreen = () => {
 
   return (
     <div className="redirect-container">
-      <Typography style={{ fontSize: "15px", color: "white", fontWeight: "normal" }}>AGGREGATOR LOGIN</Typography>
-      <TextField
-        className='text'
-        label="Email"
-        variant="outlined"
-        type="email"
-        required
-        size='small'
-        sx={{
-          borderRadius: '30px',
-          '& .MuiOutlinedInput-root': {
+      <Button className='summary-btn' onClick={() => navigate('/planDetails')} variant='contained'>Summary</Button>
+      <>
+        <Typography style={{ fontSize: "15px", color: "white", fontWeight: "normal" }}>AGGREGATOR LOGIN</Typography>
+        <TextField
+          className='text'
+          label="Email"
+          variant="outlined"
+          type="email"
+          required
+          size='small'
+          sx={{
             borderRadius: '30px',
-          },
-        }}>Email</TextField>
-      <TextField
-        className='text'
-        label="Password"
-        variant="outlined"
-        type="Password"
-        size='small'
-        required
-        sx={{
-          borderRadius: '30px',
-          '& .MuiOutlinedInput-root': {
+            '& .MuiOutlinedInput-root': {
+              borderRadius: '30px',
+            },
+          }}>Email</TextField>
+        <TextField
+          className='text'
+          label="Password"
+          variant="outlined"
+          type="Password"
+          size='small'
+          required
+          sx={{
             borderRadius: '30px',
-          },
-        }}>Password</TextField>
+            '& .MuiOutlinedInput-root': {
+              borderRadius: '30px',
+            },
+          }}>Password</TextField>
 
-      <Button
-        onClick={() => navigate('/wrapperPage')}
-        variant='contained' size='small' className='loginbtn' style={{ backgroundColor: "#00C8AF" }}>LOGIN</Button>
+        <Button
+          onClick={() => navigate('/wrapperPage')}
+          variant='contained' size='small' className='loginbtn' style={{ backgroundColor: "#00C8AF" }}>LOGIN</Button>
+      </>
     </div>
-
-
-
   )
 }
 
