@@ -21,6 +21,10 @@ export default defineConfig(({ mode }) => {
       port: __urlport,
       strictPort: true,
     },
+    preview: {
+      host: true,
+      port: 3005
+    },
     resolve: {
       alias: {
         "@float-Input": path.resolve(
