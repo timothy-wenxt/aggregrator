@@ -78,6 +78,9 @@
     }
 
     .revoke-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         align-self: flex-end;
         background: linear-gradient(90deg, #00C8AF 0%, #00A1BD 25%, #0076CD 50%, #002E6F 75%, #000000 100%);
         color: white;

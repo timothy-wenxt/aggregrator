@@ -1,22 +1,23 @@
 import { Checkbox } from 'antd'
 import { CalendarDays } from 'lucide-react'
 import React from 'react'
+import { selectPolicy } from '../constants'
 
 const SelectPolicy = () => {
     return (
         <>
             <p className='title_text'>Select Policy(s) to share information with [TPP Trading Name]</p>
             <div className='card_structure'>
-                {Array.from({ length: 2 }).map((_, index) => (
+                {selectPolicy?.map((item, index) => (
                     <div className='policy_cards' key={index}>
                         <div className='head'>
-                            <p className='main-text'>Car - 20 11240</p>
+                            <p className='main-text'>{item?.name} - {item?.number}</p>
                             <Checkbox className="custom-checkbox" />
                         </div>
-                        <p className='sub-text'>090909099009090</p>
+                        <p className='sub-text'>{item?.polNo}</p>
                         <div className='head'>
                             <p className='sub-text'>Policy Expires</p>
-                            <p className='sub-text'>30/06/2025</p>
+                            <p className='sub-text'>{item?.expires}</p>
                         </div>
                     </div>
                 ))}
