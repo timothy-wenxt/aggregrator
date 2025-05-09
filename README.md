@@ -1,5 +1,5 @@
 # React + Vite
-pm2 start npm --name Aggregator-app-2 -- preview dist
+pm2 start npm --name Aggregator-app-2 -- preview
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
