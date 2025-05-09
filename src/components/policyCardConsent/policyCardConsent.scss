@@ -1,0 +1,98 @@
+.policy-card {
+    flex: 1;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    position: relative;
+
+    // Ensure minimum height resembles the design
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    // Ensure cards don't get too small
+    @media (max-width: 1200px) {
+        flex: 0 0 calc(50% - 20px);
+    }
+
+    @media (max-width: 768px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .policy-card-content {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+
+        @media (max-width: 480px) {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    .policy-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .policy-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222952;
+        }
+
+        .policy-phone {
+            font-size: 16px;
+            color: #222952;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+    }
+
+    .policy-expiry {
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (max-width: 480px) {
+            text-align: left;
+        }
+
+        .expiry-label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .expiry-date {
+            font-size: 16px;
+            color: #00A3B4;
+            font-weight: 500;
+        }
+    }
+
+    .revoke-button {
+        align-self: flex-end;
+        background: linear-gradient(90deg, #00C8AF 0%, #00A1BD 25%, #0076CD 50%, #002E6F 75%, #000000 100%);
+        color: white;
+        border: none;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        width: 120px;
+        height: 37px;
+        border-radius: 20px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}

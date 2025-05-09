@@ -1,0 +1,53 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  .redirect-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #000000,#002E6F,#0076CD,#00A1BD, #00C8AF);
+    color: white;
+    text-align: center;
+    padding: 20px;
+ }
+  
+  .redirect-container p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 20px;
+  }
+  
+  .redirect-container strong {
+    font-weight: bold;
+  }
+  
+
+ .loader {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: 
+          linear-gradient(to right, #00C5B0, #009ABF, #006CCF, #3D81E0);
+        animation: spin 4s linear infinite;
+        mask: 
+          radial-gradient(farthest-side, transparent 37%, black 38%);
+        -webkit-mask: 
+          radial-gradient(farthest-side, transparent 78%, black 79%);
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      
+ 
+  
+
+  
+  
+  

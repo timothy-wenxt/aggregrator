@@ -1,0 +1,71 @@
+/* General reset for body and html */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Container Styles */
+.redirect-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #000000, #002E6F, #0076CD, #00A1BD, #00C8AF);
+  color: white;
+  text-align: center;
+  gap: 20px;
+  padding: 10px;  /* To prevent overflow on small screens */
+}
+
+/* Text field styling */
+.text {
+  background-color: white;
+  border-radius: 30px;
+  border: none;
+  width: 100%;  /* Ensures text fields occupy full width on small screens */
+  max-width: 350px;  /* Limits max width on large screens */
+}
+
+/* Login button styles */
+.loginbtn {
+  width: 100%;
+  max-width: 200px; /* Max width for button */
+  height: 40px;
+  border-radius: 30px !important;
+  font-weight: bold !important;
+}
+
+/* Add responsiveness to button and input fields */
+@media (max-width: 768px) {
+  .redirect-container {
+    padding: 20px; /* Adds padding on smaller screens */
+  }
+
+  .text {
+    width: 100%;  /* Ensures full width on smaller screens */
+    max-width: 100%;
+  }
+
+  .loginbtn {
+    width: 100%;  /* Makes the button full width */
+    max-width: 100%; /* Button width on smaller screens */
+  }
+}
+
+/* For very small screens, like mobile devices */
+@media (max-width: 480px) {
+  .redirect-container {
+    padding: 15px;
+  }
+
+  .text {
+    max-width: 100%;
+    margin-bottom: 15px; /* Adds some spacing between the fields on mobile */
+  }
+
+  .loginbtn {
+    height: 45px;  /* Adjust button height for better visibility on mobile */
+  }
+}

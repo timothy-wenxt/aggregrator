@@ -1,0 +1,56 @@
+.consent_wrapper {
+    width: 65%;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 10px 23px;
+    min-height: 90vh;
+
+    .title-plan {
+        font-size: 20px;
+        font-weight: 600;
+        color: #222952;
+    }
+
+    .card-structure-policy-list {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 100%;
+
+        // This will ensure cards properly wrap on smaller screens
+        @media (max-width: 1200px) {
+            width: 100%;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .btn_container_consent {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px 40px;
+
+        .footer_text {
+            margin-top: 10px;
+            color: #222952;
+            font-size: 14px;
+            font-weight: 400;
+            text-align: center;
+
+            span {
+                font-size: 14px;
+                font-weight: 700;
+            }
+        }
+    }
+}

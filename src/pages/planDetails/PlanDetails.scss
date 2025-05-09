@@ -1,0 +1,125 @@
+.plan_details_wrapper {
+    width: 65%;
+    margin: 20px auto;
+    border-radius: 10px;
+    min-height: 80lvh;
+
+    .plan_details {
+        width: 75%;
+        margin: 20px auto;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        padding: 10px 23px;
+
+        .title-plan {
+            font-size: 20px;
+            font-weight: 600;
+            color: #222952;
+        }
+
+        .details_container {
+            margin-top: 20px;
+            // color: #4a5568;
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 0.5rem;
+
+                .selected_lfi {
+                    font-weight: 700;
+                    color: #222952;
+                    font-size: 1.125rem;
+                }
+
+                .premium_info {
+                    text-align: right;
+
+                    .premium_label {
+                        font-size: 0.875rem;
+                        color: #222952;
+                        font-weight: 600
+                    }
+
+                    .premium_value {
+                        font-weight: 700;
+                        color: #222952;
+                    }
+                }
+            }
+
+            .main_section {
+                background-color: #F4F8FB;
+                padding: 5px 10px;
+                border-radius: 5px;
+                border-bottom: 2px solid #585c74;
+
+                .liability_section {
+                    margin-top: 1rem;
+                    padding-bottom: 0.5rem;
+
+                    .section_title {
+                        font-weight: 700;
+                        color: #222952;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+
+                .additional_section {
+                    margin-top: 0.4rem;
+
+                    .section_title {
+                        font-weight: 600;
+                        color: #222952;
+                        margin-bottom: 0.75rem;
+                    }
+                }
+            }
+
+            .detail_row {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 0.625rem;
+                font-size: 0.875rem;
+
+                .detail_label {
+                    font-weight: 600;
+                    color: #6b7280;
+                }
+
+                .detail_value {
+                    font-weight: 600;
+                    color: #222952;
+                }
+            }
+        }
+
+        .plan_details_review_block {
+            margin-top: 20px;
+        }
+
+
+    }
+
+    .btn_container_plan_details {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px 40px;
+
+        .footer_text {
+            margin-top: 10px;
+            color: #222952;
+            font-size: 14px;
+            font-weight: 400;
+            text-align: center;
+
+            span {
+                font-size: 14px;
+                font-weight: 700;
+            }
+        }
+    }
+}

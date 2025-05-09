@@ -1,0 +1,29 @@
+.custom-checkbox {
+    .ant-checkbox-inner {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #727D73;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px; // Optional: controls the tick size
+    }
+
+    .ant-checkbox-checked .ant-checkbox-inner {
+        background-color: #1890ff; // Or any color you prefer
+        border-color: #F9F9FC;
+    }
+
+    .ant-checkbox-input {
+        width: 24px;
+        height: 24px;
+    }
+
+    .ant-checkbox-inner::after {
+        top: 42%;
+        left: 29%;
+        width: 5px;
+        height: 10px;
+        border-width: 0 2px 2px 0;
+    }
+}

@@ -1,0 +1,110 @@
+/* LFICard.css */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+.lfi-card {
+  width: 65%;
+  margin: 20px auto;
+  height: 420px;
+  background: rgb(247, 245, 245);
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+
+}
+
+.header-section {
+  // background: #4fc8da;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+}
+
+.header-content {
+  text-align: center;
+  color: white;
+}
+
+.header-content h1 {
+  font-size: 25px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.card {
+  width: 100%;
+}
+
+.main-content {
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.confirmation-section {
+  text-align: center;
+}
+
+.tick-icon {
+  color: #4CAF50;
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.thank-you {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.confirmation-section p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+button {
+  padding: 14px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.view-plan {
+  background: #4fc8da;
+  color: white;
+}
+
+.view-dashboard {
+  background: white;
+  color: #1a2a6c;
+  border: 2px solid #1a2a6c;
+}
+
+.view-plan:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(26, 42, 108, 0.3);
+}
+
+.view-dashboard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(26, 42, 108, 0.2);
+}

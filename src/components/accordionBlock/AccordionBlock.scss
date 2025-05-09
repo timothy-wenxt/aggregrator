@@ -1,0 +1,174 @@
+// ReviewBlock.scss
+$primary-color: #3b82f6; // Blue color for icons
+$text-color: #374151; // Dark gray for text
+$light-gray: #f3f4f6; // Light gray background
+$border-color: #e5e7eb; // Border color
+$white: #ffffff; // White background
+$transition-speed: 0.3s; // Animation speed
+
+.review-block-container {
+    width: 100%;
+    // padding: 1.5rem;
+    // background-color: $light-gray;
+    // border-radius: 0.5rem;
+    // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+
+    .img_style {
+        width: 18px;
+        height: 18px;
+    }
+
+    .accordion-item {
+        // margin-bottom: 0.75rem;
+        // background-color: $white;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        // box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+        .accordion-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background-color: $white;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color $transition-speed;
+
+            &:hover {
+                background-color: darken($white, 2%);
+            }
+
+            .header-content {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+
+                .icon {
+                    color: $primary-color;
+                }
+
+                .title {
+                    font-weight: 600;
+                    color: $text-color;
+                }
+            }
+
+            .chevron {
+                color: #6b7280; // Gray color for chevron
+                transition: transform $transition-speed;
+            }
+        }
+
+        .accordion-content {
+            background-color: #F9F9FC;
+            padding: 0.5rem 1rem 0.5rem 3rem;
+
+            ul {
+                padding-left: 0;
+
+                li {
+                    margin-bottom: 0.5rem;
+                    color: #6b7280;
+                    font-size: 0.875rem;
+                    list-style-type: none;
+                }
+            }
+        }
+
+        .sub-accordions {
+            padding-left: 3rem;
+            padding-right: 1rem;
+            padding-bottom: 0.75rem;
+
+            .sub-accordion-item {
+                border-top: 1px solid $border-color;
+
+                .sub-accordion-header {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0.75rem 0.25rem;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    text-align: left;
+                    transition: background-color $transition-speed;
+
+                    &:hover {
+                        // background-color: darken($white, 2%);
+                    }
+
+                    .header-content {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.75rem;
+
+                        .icon {
+                            color: $primary-color;
+                        }
+
+                        .title {
+                            font-weight: 500;
+                            color: $text-color;
+                        }
+                    }
+                }
+
+                .sub-accordion-content {
+                    background-color: #F9F9FC;
+                    padding-left: 2rem;
+                    padding-bottom: 0.3rem;
+                    padding-top: 0.5rem;
+
+                    ul {
+                        padding-left: 0;
+
+                        li {
+                            margin-bottom: 0.5rem;
+                            color: #6b7280;
+                            font-size: 0.875rem;
+                            list-style-type: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Animation for accordion open/close
+.accordion-content,
+.sub-accordions,
+.sub-accordion-content {
+    animation: fadeIn $transition-speed;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+    .review-block-container {
+        padding: 1rem;
+
+        .accordion-item {
+            .sub-accordions {
+                padding-left: 2rem;
+            }
+        }
+    }
+}

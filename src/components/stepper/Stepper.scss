@@ -1,0 +1,65 @@
+    .ant-steps {
+        .ant-steps-item {
+            .custom-step-icon {
+                width: 32px;
+                height: 32px;
+                line-height: 32px;
+                border-radius: 50%;
+                background-color: #000000;
+                color: #ffffff;
+                font-weight: bold;
+                text-align: center;
+                display: inline-block;
+                margin-bottom: 4px; // Reduces space between icon and title
+                font-size: 14px;
+            }
+
+            .ant-steps-item-container {
+                padding-bottom: 0; // Optional: tighten container spacing
+            }
+
+            .ant-steps-item-title {
+                margin-top: 0 !important; // Ensures no extra top margin
+                line-height: 0; // Optional: tighter line spacing
+            }
+
+            &.ant-steps-item-wait .custom-step-icon {
+                background-color: #d9d9d9;
+                color: #ffffff;
+                font-weight: normal;
+            }
+
+            &.ant-steps-item-process .custom-step-icon {
+                background-color: #000000;
+            }
+
+            &.ant-steps-item-finish .custom-step-icon {
+                background-color: #000000;
+            }
+
+            &.ant-steps-item-wait .ant-steps-item-title {
+                color: #8c8c8c;
+                font-weight: normal;
+            }
+
+            &.ant-steps-item-process .ant-steps-item-title {
+                color: #000000;
+                font-weight: bold;
+            }
+
+            &.ant-steps-item-finish .ant-steps-item-title {
+                color: #1a1a1a;
+                font-weight: bold;
+            }
+        }
+
+        .ant-steps-item-tail::after {
+            height: 2px;
+            background-color: #d9d9d9;
+        }
+
+        .ant-steps-item-finish .ant-steps-item-tail::after {
+            background-color: #1e90ff;
+            height: 3px;
+        }
+    }
