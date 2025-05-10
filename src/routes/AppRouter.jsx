@@ -10,6 +10,8 @@ const PlanDetails = lazy(() => import('../pages/planDetails/PlanDetails'));
 const Consent = lazy(() => import('../pages/consent/Consent'));
 const LoginPage = lazy(() => import('../pages/loginScreen/LoginScreen'));
 const ThankyouPage = lazy(() => import('../pages/thankyouPage/ThankyouPage'));
+const ConsentNew = lazy(() => import('../pages/consentNew/ConsentNew'));
+const ConsentRevoke = lazy(() => import('../pages/consentRevoke/ConsentRevoke'));
 
 const AppRouter = () => {
     return (
@@ -56,6 +58,22 @@ const AppRouter = () => {
                         element={
                             <Suspense fallback={<div>Loading...</div>}>
                                 <Consent />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path='/consentNew'
+                        element={
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <ConsentNew />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path='/consentRevoke'
+                        element={
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <ConsentRevoke />
                             </Suspense>
                         }
                     />

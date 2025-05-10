@@ -12,7 +12,7 @@ const persistConfig = {
             out: state => decrypt(state),
         },
     ],
-    whitelist: ['id'],
+    whitelist: ['id', 'consentRevoke'],
 };
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

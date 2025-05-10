@@ -32,7 +32,7 @@ const PlanDetails = () => {
             <div className='btn_container_plan_details'>
                 <CancelButton onClick={() => navigate('/login')} />
                 <AITareqButton
-                    onClick={() => navigate('/consent')}
+                    onClick={() => navigate('/consentNew')}
                 />
             </div>
         </div>

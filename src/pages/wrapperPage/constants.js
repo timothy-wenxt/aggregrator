@@ -1,3 +1,5 @@
+import { CreditCard, DollarSign, User } from "lucide-react";
+
 export const stepperData = [
     {
         title: 'Consent',
@@ -139,3 +141,90 @@ export const policiesConsent = [
 export const companyName = 'WeNxt Tech'
 
 export const customCol = 'WeNxt Tech'
+
+export const connections = [
+    {
+        id: 1,
+        name: 'WeNxt Tech Chennai',
+        accounts: 3,
+        lastShared: '31/03/2024 11:45',
+        expires: '30/03/2025',
+        status: 'Active'
+    },
+    {
+        id: 2,
+        name: 'WeNxt Tech Bangalore',
+        accounts: 1,
+        lastShared: '16/10/2024 15:45',
+        expires: '10/02/2025',
+        status: 'Active'
+    },
+    {
+        id: 3,
+        name: 'WeNxt Tech Mumbai',
+        accounts: 1,
+        lastShared: '1/9/2024 08:30',
+        expires: '30/07/2025',
+        status: 'Suspended'
+    }
+];
+
+export const accordionDataConsent = [
+    {
+        id: 'accountDetails',
+        icon: 'userImg',
+        title: 'Your Account Details',
+        content: [
+            'Your account name and number',
+            'Your account balance'
+        ]
+    },
+    {
+        id: 'accountTransactions',
+        icon: 'infoImg',
+        title: 'Your Account Transactions',
+        content: [
+            'Your incoming transactions.',
+            'Your outgoing transactions.',
+            'Details of your incoming transactions.',
+            'Details of your outgoing transactions.'
+        ]
+    },
+    {
+        id: 'regularPayments',
+        icon: 'payImg',
+        title: 'Your Regular Payments',
+        content: [
+            'Direct Debits',
+            'Scheduled Payments'
+        ]
+    }
+];
+
+export const dateInfoListConsent = [
+    {
+        id: 1,
+        label: 'First Connected',
+        value: '31 March 2024',
+        icon: 'calender'
+    },
+    {
+        id: 2,
+        label: 'Connection Expires',
+        value: '30 March 2025',
+        icon: 'calender'
+    },
+    {
+        id: 3,
+        label: 'Last Updated',
+        value: '5 June 2024',
+        icon: 'refresh'
+    }
+];
+
+export const updatesListConsent = [
+    { date: '5 June 2024', description: 'Updated account access permissions' },
+    { date: '15 May 2024', description: 'Changed transaction data access' },
+    { date: '20 April 2024', description: 'Initial setup completed' },
+    { date: '31 March 2024', description: 'First connected' }
+];

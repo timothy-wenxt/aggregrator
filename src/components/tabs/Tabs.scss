@@ -1,0 +1,54 @@
+.custom-header-tab {
+    color: #7d8fb3;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+
+.sticky-tabs {
+    .ant-tabs-nav {
+        user-select: none;
+        //  padding: 7px 0 6px 0px;
+        position: sticky !important;
+        border-radius: 8px;
+        // background-color: #e5f6ff !important;
+        // top: 8.5% !important;
+        z-index: 1 !important;
+        margin: 0.5px !important;
+
+        .ant-tabs-nav-wrap {
+            height: 36px;
+
+            .ant-tabs-tab-active {
+                .custom-header-tab {
+                    color: #0382c8 !important;
+                }
+            }
+        }
+    }
+}
+
+.equal-width-tabs {
+    .ant-tabs-nav {
+        .ant-tabs-nav-wrap {
+            .ant-tabs-nav-list {
+                width: 100%;
+                display: flex;
+
+                .ant-tabs-tab {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    /* Center the tab content horizontally */
+                    margin-right: 0 !important;
+                    /* Remove default margin */
+                }
+            }
+        }
+    }
+
+    .ant-tabs-tab-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,421 @@
+// Variables
+$primary-color: #222952;
+$active-color: #2aa061;
+$border-color: #e0e0e0;
+$shadow-color: rgba(0, 0, 0, 0.15);
+$stop-button-color: #43c2db;
+$transition-speed: 0.3s;
+$icon-color: #222952;
+$icon-color-dates: #43c2db; // New red color for date section icons
+$text-mild-color: #6b7280; // Mild color for sub-text elements
+
+.consent-revoke-box {
+    width: 50%;
+    max-width: 800px;
+    margin: 10px auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px $shadow-color;
+    padding: 10px 20px;
+    font-family: sans-serif;
+    color: $primary-color;
+    font-size: 0.95rem;
+
+    h1,
+    h2 {
+        margin: 0;
+        color: $primary-color;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    h2 {
+        font-size: 1.15rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    p {
+        margin: 3px 0;
+    }
+}
+
+// Header section
+.consent-header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $border-color;
+
+    .trading-name {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+
+        .status-active {
+            background-color: $active-color;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+    }
+
+    .last-updated {
+        color: $text-mild-color; // Using mild color
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+
+    .consent-id {
+        display: flex;
+        justify-content: space-between;
+        color: $primary-color;
+        font-size: 0.9rem;
+
+        .id-number {
+            font-weight: 500;
+        }
+    }
+}
+
+// Accounts section
+.accounts-section {
+    margin-bottom: 20px;
+
+    .account-item {
+        margin-bottom: 10px;
+
+        .account-type {
+            font-weight: 600;
+            margin-bottom: 3px;
+            font-size: 0.9rem;
+        }
+
+        .account-details {
+            display: flex;
+            justify-content: space-between;
+            padding: 3px 0;
+            font-size: 0.85rem;
+
+            span:first-child {
+                color: $text-mild-color; // Mild color for IBAN label
+            }
+
+            .iban-number {
+                font-weight: 500;
+                color: $text-mild-color; // Mild color for IBAN value
+            }
+        }
+    }
+}
+
+// Data section with accordions
+.data-section {
+    margin-bottom: 20px;
+
+    .accordion-item {
+        margin-bottom: 8px;
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            cursor: pointer;
+
+            &.active {
+                font-weight: 500;
+            }
+
+            .header-content {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                .img_style {
+                    width: 18px;
+                    height: 16px;
+                }
+            }
+
+            .chevron {
+                transition: transform $transition-speed ease;
+                width: 18px;
+                height: 18px;
+
+                &.rotated {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height $transition-speed ease, padding $transition-speed ease;
+
+            &.open {
+                max-height: 300px;
+                padding-bottom: 10px;
+            }
+
+            ul {
+                margin: 0;
+                padding-left: 20px;
+
+                li {
+                    margin-bottom: 5px;
+                    color: $text-mild-color; // Mild color for accordion content
+                    font-size: 0.85rem;
+                    opacity: 0;
+                    transform: translateY(10px);
+                    transition: opacity 0.3s ease, transform 0.3s ease;
+
+                    &.visible {
+                        margin-left: 10px;
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+
+                    &.hidden {
+                        opacity: 0;
+                        transform: translateY(10px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Dates section - REDESIGNED
+.dates-section {
+    margin-bottom: 20px;
+
+    .dates-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .date-item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 8px;
+        font-size: 0.85rem;
+
+        .date-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+
+            .icon {
+                stroke: $icon-color-dates; // RED color for date icons
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        .date-value {
+            font-weight: 500;
+            padding-left: 26px; // Align with icon + gap
+            color: $text-mild-color; // Mild color for date values
+        }
+    }
+}
+
+// Updates section
+.updates-section {
+    margin-top: 10px;
+
+    .updates-button {
+        background: none;
+        border: none;
+        color: $stop-button-color;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 0;
+        text-decoration: underline;
+        font-size: 0.85rem;
+    }
+
+    .updates-container {
+        margin-top: 10px;
+        border-top: 1px solid $border-color;
+        padding-top: 10px;
+
+        .view-toggles {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-bottom: 8px;
+
+            .view-toggle {
+                background: none;
+                border: 1px solid $border-color;
+                border-radius: 4px;
+                padding: 4px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &.active {
+                    background-color: lighten($stop-button-color, 30%);
+                    border-color: $stop-button-color;
+
+                    svg {
+                        stroke: $stop-button-color;
+                    }
+                }
+            }
+        }
+
+        .updates-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+
+            th,
+            td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid $border-color;
+            }
+
+            th {
+                font-weight: 600;
+                color: $primary-color;
+            }
+
+            td {
+                color: $text-mild-color; // Mild color for table data
+            }
+        }
+
+        .updates-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+
+            .update-card {
+                border: 1px solid $border-color;
+                border-radius: 6px;
+                padding: 10px;
+                font-size: 0.85rem;
+
+                .update-date {
+                    font-weight: 600;
+                    margin-bottom: 5px;
+                    color: $primary-color;
+                }
+
+                .update-description {
+                    color: $text-mild-color; // Mild color for descriptions
+                }
+            }
+        }
+    }
+}
+
+// Action section
+.action-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    .stop-sharing-button {
+        background-color: $stop-button-color;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 12px 30px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        cursor: pointer;
+        width: 100%;
+        max-width: 500px;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: darken($stop-button-color, 10%);
+        }
+    }
+}
+
+// Responsive styles
+@media screen and (max-width: 768px) {
+    .consent-revoke-box {
+        padding: 10px;
+        margin: 8px;
+        width: auto;
+    }
+
+    .consent-header {
+        .trading-name {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+
+            .status-active {
+                align-self: flex-start;
+            }
+        }
+    }
+
+    .account-item {
+        .account-details {
+            flex-direction: column;
+            gap: 3px;
+        }
+    }
+
+    .dates-section {
+        .dates-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .updates-section {
+        .updates-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+// For very small screens
+@media screen and (max-width: 480px) {
+    .consent-header {
+        .consent-id {
+            flex-direction: column;
+            gap: 3px;
+        }
+    }
+
+    h1 {
+        font-size: 1.1rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+}
+
+// For tablets
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .consent-revoke-box {
+        padding: 15px;
+        max-width: 95%;
+    }
+
+    .dates-section {
+        .dates-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
