@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 const Dashboard = () => {
     const id = useSelector(state => state?.id?.id);
 
-    useEffect(() => {
-        console.log("ID : ", id)
-    }, [])
+    // useEffect(() => {
+    //     console.log("ID : ", id)
+    // }, [])
 
     return (
         <div className='dashboard'>
