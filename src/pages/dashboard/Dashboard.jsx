@@ -80,6 +80,45 @@ const tableData = [
       consentId: 'C124',
       consentType: 'Opt-out',
     },
+     {
+      requestDate: '2025-05-12 09:00 AM',
+      requestType: 'Renewal',
+      tppName: 'TPP B',
+      productType: 'Life',
+      productName: 'Product 2',
+      policyNumber: 'P12346',
+      customerName: 'Jane Smith',
+      respondedTime: '2025-05-12 11:20 AM',
+      status: 'Pending',
+      consentId: 'C124',
+      consentType: 'Opt-out',
+    },
+     {
+      requestDate: '2025-05-13 08:00 AM',
+      requestType: 'Renewal',
+      tppName: 'TPP B',
+      productType: 'Life',
+      productName: 'Product 2',
+      policyNumber: 'P12346',
+      customerName: 'Jacob',
+      respondedTime: '2025-05-13 11:20 AM',
+      status: 'Pending',
+      consentId: 'C124',
+      consentType: 'Opt-out',
+    },
+     {
+      requestDate: '2025-05-11 11:00 AM',
+      requestType: 'Renewal',
+      tppName: 'TPP B',
+      productType: 'Life',
+      productName: 'Product 2',
+      policyNumber: 'P12346',
+      customerName: 'Jane Smith',
+      respondedTime: '2025-05-11 11:20 AM',
+      status: 'Pending',
+      consentId: 'C124',
+      consentType: 'Opt-out',
+    },
   ];
 const COLORS = ['#1e3a8a', '#1d4ed8', '#06b6d4'];
     const percentage = 72;
@@ -91,7 +130,38 @@ const COLORS = ['#1e3a8a', '#1d4ed8', '#06b6d4'];
     const total = statusData.reduce((sum, item) => sum + item.value, 0);
 
   const calculatePercentage = (value) => ((value / total) * 100).toFixed(1) + '%';
-  
+  const handleViewJson = async () => {
+  try {
+    const response = await fetch('http://193.203.162.152:2010/getPolicyInformation?policyId=POL/2025/000001');
+    const json = await response.json();
+
+    const jsonString = JSON.stringify(json, null, 2); // Pretty print
+    const newWindow = window.open('', '_blank');
+
+    newWindow.document.write(`
+      <html>
+        <head>
+          <title>Policy JSON</title>
+          <style>
+            body { font-family: monospace; white-space: pre-wrap; background: #f9f9f9; padding: 20px; }
+            pre { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+          </style>
+        </head>
+        <body>
+          <h2>Policy JSON</h2>
+          <pre>${jsonString}</pre>
+        </body>
+      </html>
+    `);
+
+    newWindow.document.close();
+  } catch (error) {
+    alert('Failed to fetch or display JSON');
+    console.error(error);
+  }
+};
+
+
   return (
     <div className="dashboard">
       <aside className="sidebar">
@@ -185,6 +255,12 @@ const COLORS = ['#1e3a8a', '#1d4ed8', '#06b6d4'];
           ))}
         </tbody>
       </table>
+
+<div style={{display:"flex",justifyContent:"end",margin:"20px"}}>
+  <button onClick={handleViewJson} style={{backgroundColor:"#00C8AF",borderRadius:"5px",padding:"10px",fontSize:"12px",fontWeight:"bold",color:"white"}}>
+  View Policy JSON
+</button></div>
+
     </div>
           </div>
         </div>
