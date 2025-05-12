@@ -9,7 +9,8 @@ const LoginScreen = () => {
 
   return (
     <div className="redirect-container">
-      <Button className='summary-btn' onClick={() => navigate('/planDetails')} variant='contained'>Summary</Button>
+     <div style={{display:"flex",gap:"30px"}}> <Button className='summary-btn' onClick={() => navigate('/planDetails')} variant='contained'>Summary</Button>
+            <Button className='summary-btn' onClick={() => navigate('/dashboard')} variant='contained'>Dashboard</Button></div>
       <>
         <Typography style={{ fontSize: "15px", color: "white", fontWeight: "normal" }}>AGGREGATOR LOGIN</Typography>
         <TextField

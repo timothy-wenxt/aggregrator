@@ -7,19 +7,7 @@ import {
   LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, PieChart, Pie, Cell
 } from 'recharts';
 
-
-  const data = [
-  { name: '10am', value: 40 },
-  { name: '11am', value: 55 },
-  { name: '12am', value: 65 },
-  { name: '01am', value: 35 },
-  { name: '02am', value: 50 },
-  { name: '03am', value: 70 },
-  { name: '04am', value: 30 },
-  { name: '05am', value: 60 },
-  { name: '06am', value: 80 },
-  { name: '07am', value: 90 }
-];
+import { data, cardData, tableData, statusData, COLORS } from '../wrapperPage/constants'
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -37,90 +25,6 @@ const Dashboard = () => {
 
   const [popupIndex, setPopupIndex] = useState(null);
 
-  const cardData = [
-    { title: 'Data Request Received', value: 27},
-    { title: 'Data Request Responded', value: 3298 },
-    { title: 'Data Request Failed', value: 1111 },
-    { title: 'Data Request Inprogress', value: 1111 },
-    { title: 'Avg Response Time', value: '86%'},
-    { title: 'Unique TPP Visitors', value: '+34%'},
-  ];
-
-  const statusData = [
-  { name: 'To Do', value: 28 },
-  { name: 'In-progress', value: 6 },
-  { name: 'Done', value: 6 },
-];
-
-const tableData = [
-
-    {
-      requestDate: '2025-05-11 10:00 AM',
-      requestType: 'New',
-      tppName: 'TPP A',
-      productType: 'Health',
-      productName: 'Product 1',
-      policyNumber: 'P12345',
-      customerName: 'John Doe',
-      respondedTime: '2025-05-11 10:30 AM',
-      status: 'Completed',
-      consentId: 'C123',
-      consentType: 'Opt-in',
-    },
-    {
-      requestDate: '2025-05-11 11:00 AM',
-      requestType: 'Renewal',
-      tppName: 'TPP B',
-      productType: 'Life',
-      productName: 'Product 2',
-      policyNumber: 'P12346',
-      customerName: 'Jane Smith',
-      respondedTime: '2025-05-11 11:20 AM',
-      status: 'Pending',
-      consentId: 'C124',
-      consentType: 'Opt-out',
-    },
-     {
-      requestDate: '2025-05-12 09:00 AM',
-      requestType: 'Renewal',
-      tppName: 'TPP B',
-      productType: 'Life',
-      productName: 'Product 2',
-      policyNumber: 'P12346',
-      customerName: 'Jane Smith',
-      respondedTime: '2025-05-12 11:20 AM',
-      status: 'Pending',
-      consentId: 'C124',
-      consentType: 'Opt-out',
-    },
-     {
-      requestDate: '2025-05-13 08:00 AM',
-      requestType: 'Renewal',
-      tppName: 'TPP B',
-      productType: 'Life',
-      productName: 'Product 2',
-      policyNumber: 'P12346',
-      customerName: 'Jacob',
-      respondedTime: '2025-05-13 11:20 AM',
-      status: 'Pending',
-      consentId: 'C124',
-      consentType: 'Opt-out',
-    },
-     {
-      requestDate: '2025-05-11 11:00 AM',
-      requestType: 'Renewal',
-      tppName: 'TPP B',
-      productType: 'Life',
-      productName: 'Product 2',
-      policyNumber: 'P12346',
-      customerName: 'Jane Smith',
-      respondedTime: '2025-05-11 11:20 AM',
-      status: 'Pending',
-      consentId: 'C124',
-      consentType: 'Opt-out',
-    },
-  ];
-const COLORS = ['#1e3a8a', '#1d4ed8', '#06b6d4'];
     const percentage = 72;
   const strokeWidth = 15;
   const radius = 70;
