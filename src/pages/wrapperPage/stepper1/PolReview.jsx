@@ -3,7 +3,7 @@ import RevCard from '../../../components/revCard/RevCard'
 import { Input } from 'antd'
 import { Search } from 'lucide-react'
 import InsuranceProviderSelector from '../../../components/InsuranceProviderSelector/InsuranceProviderSelector'
-import { insuranceProvidersAccess } from '../constants'
+import { insuranceProvidersAccess, tradingName } from '../constants'
 import CancelButton from '../../../components/cancelButton/CancelButton'
 import AITareqButton from '../../../components/AITareqButton/AITareqButton'
 
@@ -17,7 +17,7 @@ const PolReview = ({ setCurrentStep }) => {
             <div className='main_conatiner'>
                 <p className='review-title'>Share your policy(s)</p>
 
-                <p className='sub-text'>For you to use this service ,[TPP TRADING NAME] need to access information from your insurance policy accounts</p>
+                <p className='sub-text'>For you to use this service ,{tradingName} need to access information from your insurance policy accounts</p>
 
                 <div className='mt-8'>
                     <p className='review-title-sub'>Why we need you to share your data</p>
