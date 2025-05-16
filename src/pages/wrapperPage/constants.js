@@ -1,5 +1,3 @@
-import { CreditCard, DollarSign, User } from "lucide-react";
-
 export const stepperData = [
     {
         title: 'Consent',
@@ -138,9 +136,9 @@ export const policiesConsent = [
     }
 ];
 
-export const companyName = 'WeNxt Tech'
+export const tradingName = 'WeNxt Tech'
 
-export const customCol = 'WeNxt Tech'
+export const LFIName = 'WeNxt Tech'
 
 export const connections = [
     {
@@ -230,100 +228,238 @@ export const updatesListConsent = [
 ];
 
 
- export const data = [
-  { name: '10am', value: 40 },
-  { name: '11am', value: 55 },
-  { name: '12am', value: 65 },
-  { name: '01am', value: 35 },
-  { name: '02am', value: 50 },
-  { name: '03am', value: 70 },
-  { name: '04am', value: 30 },
-  { name: '05am', value: 60 },
-  { name: '06am', value: 80 },
-  { name: '07am', value: 90 }
+export const data = [
+    { name: '10am', value: 40 },
+    { name: '11am', value: 55 },
+    { name: '12am', value: 65 },
+    { name: '01am', value: 35 },
+    { name: '02am', value: 50 },
+    { name: '03am', value: 70 },
+    { name: '04am', value: 30 },
+    { name: '05am', value: 60 },
+    { name: '06am', value: 80 },
+    { name: '07am', value: 90 }
 ];
 
- export const cardData = [
-    { title: 'Data Request Received', value: 27},
+export const cardData = [
+    { title: 'Data Request Received', value: 27 },
     { title: 'Data Request Responded', value: 3298 },
     { title: 'Data Request Failed', value: 1111 },
     { title: 'Data Request Inprogress', value: 1111 },
-    { title: 'Avg Response Time', value: '86%'},
-    { title: 'Unique TPP Visitors', value: '+34%'},
-  ];
+    { title: 'Avg Response Time', value: '86%' },
+    { title: 'Unique TPP Visitors', value: '+34%' },
+];
 
 export const statusData = [
-  { name: 'To Do', value: 28 },
-  { name: 'In-progress', value: 6 },
-  { name: 'Done', value: 6 },
+    { name: 'To Do', value: 28 },
+    { name: 'In-progress', value: 6 },
+    { name: 'Done', value: 6 },
 ];
 
 export const tableData = [
 
     {
-      requestDate: '2025-05-11 10:00 AM',
-      requestType: 'New',
-      tppName: 'TPP A',
-      productType: 'Health',
-      productName: 'Product 1',
-      policyNumber: 'P12345',
-      customerName: 'John Doe',
-      respondedTime: '2025-05-11 10:30 AM',
-      status: 'Completed',
-      consentId: 'C123',
-      consentType: 'Opt-in',
+        requestDate: '2025-05-11 10:00 AM',
+        requestType: 'New',
+        tppName: 'TPP A',
+        productType: 'Health',
+        productName: 'Product 1',
+        policyNumber: 'P12345',
+        customerName: 'John Doe',
+        respondedTime: '2025-05-11 10:30 AM',
+        status: 'Completed',
+        consentId: 'C123',
+        consentType: 'Opt-in',
     },
     {
-      requestDate: '2025-05-11 11:00 AM',
-      requestType: 'Renewal',
-      tppName: 'TPP B',
-      productType: 'Life',
-      productName: 'Product 2',
-      policyNumber: 'P12346',
-      customerName: 'Jane Smith',
-      respondedTime: '2025-05-11 11:20 AM',
-      status: 'Pending',
-      consentId: 'C124',
-      consentType: 'Opt-out',
+        requestDate: '2025-05-11 11:00 AM',
+        requestType: 'Renewal',
+        tppName: 'TPP B',
+        productType: 'Life',
+        productName: 'Product 2',
+        policyNumber: 'P12346',
+        customerName: 'Jane Smith',
+        respondedTime: '2025-05-11 11:20 AM',
+        status: 'Pending',
+        consentId: 'C124',
+        consentType: 'Opt-out',
     },
-     {
-      requestDate: '2025-05-12 09:00 AM',
-      requestType: 'Renewal',
-      tppName: 'TPP B',
-      productType: 'Life',
-      productName: 'Product 2',
-      policyNumber: 'P12346',
-      customerName: 'Jane Smith',
-      respondedTime: '2025-05-12 11:20 AM',
-      status: 'Pending',
-      consentId: 'C124',
-      consentType: 'Opt-out',
+    {
+        requestDate: '2025-05-12 09:00 AM',
+        requestType: 'Renewal',
+        tppName: 'TPP B',
+        productType: 'Life',
+        productName: 'Product 2',
+        policyNumber: 'P12346',
+        customerName: 'Jane Smith',
+        respondedTime: '2025-05-12 11:20 AM',
+        status: 'Pending',
+        consentId: 'C124',
+        consentType: 'Opt-out',
     },
-     {
-      requestDate: '2025-05-13 08:00 AM',
-      requestType: 'Renewal',
-      tppName: 'TPP B',
-      productType: 'Life',
-      productName: 'Product 2',
-      policyNumber: 'P12346',
-      customerName: 'Jacob',
-      respondedTime: '2025-05-13 11:20 AM',
-      status: 'Pending',
-      consentId: 'C124',
-      consentType: 'Opt-out',
+    {
+        requestDate: '2025-05-13 08:00 AM',
+        requestType: 'Renewal',
+        tppName: 'TPP B',
+        productType: 'Life',
+        productName: 'Product 2',
+        policyNumber: 'P12346',
+        customerName: 'Jacob',
+        respondedTime: '2025-05-13 11:20 AM',
+        status: 'Pending',
+        consentId: 'C124',
+        consentType: 'Opt-out',
     },
-     {
-      requestDate: '2025-05-11 11:00 AM',
-      requestType: 'Renewal',
-      tppName: 'TPP B',
-      productType: 'Life',
-      productName: 'Product 2',
-      policyNumber: 'P12346',
-      customerName: 'Jane Smith',
-      respondedTime: '2025-05-11 11:20 AM',
-      status: 'Pending',
-      consentId: 'C124',
-      consentType: 'Opt-out',
+    {
+        requestDate: '2025-05-11 11:00 AM',
+        requestType: 'Renewal',
+        tppName: 'TPP B',
+        productType: 'Life',
+        productName: 'Product 2',
+        policyNumber: 'P12346',
+        customerName: 'Jane Smith',
+        respondedTime: '2025-05-11 11:20 AM',
+        status: 'Pending',
+        consentId: 'C124',
+        consentType: 'Opt-out',
     },
-  ];
+];
 export const COLORS = ['#1e3a8a', '#1d4ed8', '#06b6d4'];
+
+export const quoteOptions = [
+    {
+        label: 'Takaful Insurance',
+        value: 1
+    },
+    {
+        label: 'Conventional Insurance',
+        value: 2
+    }
+]
+
+export const quotePurpose = [
+    {
+        label: 'New Policy',
+        value: 1
+    },
+    {
+        label: 'Policy switch',
+        value: 2
+    },
+    {
+        label: 'Policy Renewal',
+        value: 3
+    },
+]
+
+export const insuranceType = [
+    {
+        label: 'Motor insurance',
+        value: 1
+    },
+]
+
+export const insuranceProviders = [
+    {
+        id: 'all',
+        name: 'All Insurers',
+        logo: ''
+    },
+    {
+        id: 'awnic',
+        name: 'AWNIC',
+        logo: 'AWNIC'
+    },
+    {
+        id: 'adnic',
+        name: 'ADNIC',
+        logo: 'ADNIC'
+    },
+    {
+        id: 'metlife',
+        name: 'MetLife',
+        logo: 'Sukoon'
+    },
+    {
+        id: 'sukoon',
+        name: 'Sukoon Insurance Company',
+        logo: 'MetLife'
+    }
+];
+
+export const insuranceProvidersAccess = [
+    {
+        id: 'awnic',
+        name: 'AWNIC',
+        logo: 'AWNIC'
+    },
+    {
+        id: 'adnic',
+        name: 'ADNIC',
+        logo: 'ADNIC'
+    },
+    {
+        id: 'metlife',
+        name: 'MetLife',
+        logo: 'Sukoon'
+    },
+    {
+        id: 'sukoon',
+        name: 'Sukoon Insurance Company',
+        logo: 'MetLife'
+    }
+];
+
+export const accordionDataSharePolicy = [
+    {
+        id: 'quoteRelated',
+        title: 'Quote Related Information',
+        icon: 'message',
+        isMainAccordion: true,
+        subAccordions: [
+            {
+                id: 'customerDetails',
+                title: 'Your customer details',
+                icon: 'user',
+                items: [
+                    'Full name and contact information',
+                    'Address and location details',
+                    'Account identification numbers'
+                ]
+            },
+            {
+                id: 'policyDetails',
+                title: 'Policy details',
+                icon: 'file',
+                items: [
+                    'Coverage information',
+                    'Policy terms and conditions',
+                    'Effective dates and periods'
+                ]
+            },
+            {
+                id: 'productInfo',
+                title: 'Product information',
+                icon: 'grid',
+                items: [
+                    'Product specifications',
+                    'Features and benefits',
+                    'Additional options'
+                ]
+            }
+        ]
+    },
+];
+export const accordionDataSharePolicyPayment = [
+    {
+        id: 'paymentDetails',
+        title: 'Payment details',
+        icon: 'creditCard',
+        isMainAccordion: true,
+        items: [
+            'Payment method information',
+            'Billing address',
+            'Transaction details'
+        ]
+    }
+];
