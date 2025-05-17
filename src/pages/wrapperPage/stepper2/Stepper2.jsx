@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setStepperIndex } from '../../../globalStore/slices/stepperSlice'
 import useApiRequests from '../../../services/useApiRequests'
 import showNotification from '../../../components/notification/Notification'
+import JSONModal from './JSONModal'
 
 const Stepper2 = () => {
     const dispatch = useDispatch();
@@ -21,6 +22,9 @@ const Stepper2 = () => {
     const polDetails = useSelector((state) => state?.polDetails?.policyDetails);
     const [polData, setPolData] = useState([]);
     const [concentData, setConcentData] = useState(null);
+    const [selectedPolicy, setSelectedPolicy] = useState(null);
+    const [jsonModal, setJsonModal] = useState(false);
+    const [JSONData, setJSONData] = useState(null)
 
     const handleGetPolData = async () => {
         const queryParams = {
@@ -49,17 +53,41 @@ const Stepper2 = () => {
         }
     };
 
+    const handleSubmit = async () => {
+        if (!selectedPolicy) {
+            showNotification.WARNING("Please select a policy");
+            return;
+        }
+        try {
+            const response = await polList('', {}, { selectedPolicy });
+            setJSONData(response)
+            setJsonModal(true)
+            console.log("response", response);
+        } catch (err) {
+            showNotification.ERROR(err);
+        }
+    };
+
     useEffect(() => {
         handleGetPolData()
         handleGetConsentData()
     }, [])
 
+    const handleClose = () => {
+        setJsonModal(false)
+        dispatch(setStepperIndex(1))
+        navigate('/login')
+    }
 
     return (
         <>
             <div className='select_policy'>
                 {polData?.length > 0 &&
-                    <SelectPolicy polData={polData} />
+                    <SelectPolicy
+                        polData={polData}
+                        selectedPolicy={selectedPolicy}
+                        setSelectedPolicy={setSelectedPolicy}
+                    />
                 }
             </div>
             <div className='select_policy'>
@@ -78,14 +106,22 @@ const Stepper2 = () => {
                 <div className='main-btns'>
                     {/* <CancelButton onClick={() => dispatch(setStepperIndex(0))} /> */}
                     <AITareqButton onClick={() => {
-                        dispatch(setStepperIndex(1))
-                        navigate('/login')
+                        handleSubmit()
+                        // dispatch(setStepperIndex(1))
+                        // navigate('/login')
                     }} />
                 </div>
                 <p className='footer_text'>Continue to
                     <span> {LFIName} </span>
                     to share your insurance policy information under these terms</p>
             </div>
+            {jsonModal &&
+                <JSONModal
+                    open={jsonModal}
+                    handleClose={handleClose}
+                    JSONData={JSONData}
+                />
+            }
         </>
     )
 }
