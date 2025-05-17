@@ -6,11 +6,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 14px; // Optional: controls the tick size
+        font-size: 14px;
     }
 
     .ant-checkbox-checked .ant-checkbox-inner {
-        background-color: #1890ff; // Or any color you prefer
+        background-color: #1890ff;
         border-color: #F9F9FC;
     }
 
@@ -25,5 +25,17 @@
         width: 5px;
         height: 10px;
         border-width: 0 2px 2px 0;
+    }
+
+    /* Fix for indeterminate state */
+    .ant-checkbox-indeterminate .ant-checkbox-inner::after {
+        top: 50%;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        background-color: #1890ff;
+        border: 0;
+        transform: translate(-50%, -50%);
+        opacity: 1;
     }
 }

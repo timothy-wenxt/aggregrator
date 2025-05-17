@@ -1,4 +1,4 @@
-// ReviewBlock.scss
+// AccordionBlock.scss
 $primary-color: #3b82f6; // Blue color for icons
 $text-color: #374151; // Dark gray for text
 $light-gray: #f3f4f6; // Light gray background
@@ -12,7 +12,6 @@ $transition-speed: 0.3s; // Animation speed
     // background-color: $light-gray;
     // border-radius: 0.5rem;
     // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-
 
     .img_style {
         width: 18px;
@@ -57,9 +56,15 @@ $transition-speed: 0.3s; // Animation speed
                 }
             }
 
-            .chevron {
-                color: #6b7280; // Gray color for chevron
-                transition: transform $transition-speed;
+            .control-section {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+
+                .chevron {
+                    color: #6b7280; // Gray color for chevron
+                    transition: transform $transition-speed;
+                }
             }
         }
 
@@ -115,6 +120,17 @@ $transition-speed: 0.3s; // Animation speed
                         .title {
                             font-weight: 500;
                             color: $text-color;
+                        }
+                    }
+
+                    .control-section {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.75rem;
+
+                        .chevron {
+                            color: #6b7280; // Gray color for chevron
+                            transition: transform $transition-speed;
                         }
                     }
                 }

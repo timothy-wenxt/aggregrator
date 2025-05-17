@@ -1,0 +1,68 @@
+.insurance-provider-selector {
+    width: 100%;
+    margin: 0 auto;
+
+    .ins-provider-header {
+        // border-radius: 10px;
+        // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        // margin-top: 20px;
+        // padding: 10px 18px;
+    }
+
+    .provider-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        // gap: 2px;
+        // margin-top: 2px;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    .provider-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0px;
+        border-bottom: 1px solid #EFEFEF;
+        // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        margin-bottom: 8px;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    .provider-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .provider-logo {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+    }
+
+    .provider-name {
+        font-size: 15px;
+        font-weight: 600;
+        color: #374151;
+    }
+
+    .first_row {
+        margin-top: 10px;
+        font-size: 17px;
+        color: #374151;
+        font-weight: 600;
+    }
+
+    .provider-checkbox {
+        .ant-checkbox-checked .ant-checkbox-inner {
+            // background-color: #1FC6CC;
+            // border-color: #1FC6CC;
+        }
+    }
+}
