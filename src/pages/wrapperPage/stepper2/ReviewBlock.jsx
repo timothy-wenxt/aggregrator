@@ -1,9 +1,9 @@
 import React from 'react';
 import AccordionBlock from '../../../components/accordionBlock/AccordionBlock';
-import { accordionDataAuthorize } from '../../wrapperPage/constants';
+import { consentMain } from '../../wrapperPage/constants';
 
 
-const ReviewBlock = () => {
+const ReviewBlock = ({ concentData }) => {
 
     const handleAccordionChange = (newCheckedState) => {
         console.log('Current checked state:', newCheckedState);
@@ -15,7 +15,8 @@ const ReviewBlock = () => {
             <h2 className="review-title">Review the information you will share</h2>
 
             <AccordionBlock
-                accordionData={accordionDataAuthorize}
+                data={concentData}
+                accordionData={consentMain}
                 onChange={handleAccordionChange}
                 checkboxes={true}
             />

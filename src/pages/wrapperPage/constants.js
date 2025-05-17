@@ -463,3 +463,41 @@ export const accordionDataSharePolicyPayment = [
         ]
     }
 ];
+
+export const consentMain = [
+    {
+        "id": "ReadInsurancePolicies",
+        "title": "ReadInsurancePolicies",
+        "icon": "message"
+    },
+    {
+        "id": "ReadCustomerBasic",
+        "title": "ReadCustomerBasic",
+        "icon": "message"
+    },
+    {
+        "id": "ReadCustomerDetail",
+        "title": "ReadCustomerDetail",
+        "icon": "message"
+    },
+    {
+        "id": "ReadCustomerPaymentDetails",
+        "title": "ReadCustomerPaymentDetails",
+        "icon": "message"
+    },
+    {
+        "id": "ReadInsuranceProduct",
+        "title": "ReadInsuranceProduct",
+        "icon": "message"
+    },
+    {
+        "id": "ReadCustomerClaims",
+        "title": "ReadCustomerClaims",
+        "icon": "message"
+    },
+    {
+        "id": "ReadInsurancePremium",
+        "title": "ReadInsurancePremium",
+        "icon": "message"
+    },
+]

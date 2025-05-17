@@ -15,7 +15,7 @@ const WrapperPage = () => {
         return () => clearTimeout(timer);
     }, []);
 
-    // if (loader) return <LoadingScreen />;
+    if (loader) return <LoadingScreen />;
 
     return (
         <div className="wrapper-page">

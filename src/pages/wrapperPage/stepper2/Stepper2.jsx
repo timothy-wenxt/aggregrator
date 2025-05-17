@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SelectPolicy from './SelectPolicy'
 import ReviewBlock from './ReviewBlock'
 import { CalendarDays } from 'lucide-react'
@@ -7,21 +7,65 @@ import CancelButton from '../../../components/cancelButton/CancelButton'
 import { useNavigate } from 'react-router-dom'
 import { LFIName } from '../constants'
 import moment from 'moment'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setStepperIndex } from '../../../globalStore/slices/stepperSlice'
+import useApiRequests from '../../../services/useApiRequests'
+import showNotification from '../../../components/notification/Notification'
 
 const Stepper2 = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const polList = useApiRequests('polList', 'GET');
+    const consentList = useApiRequests('consentList', 'GET');
     const formattedDate = moment().format('DD/MM/YYYY');
+    const polDetails = useSelector((state) => state?.polDetails?.policyDetails);
+    const [polData, setPolData] = useState([]);
+    const [concentData, setConcentData] = useState(null);
+
+    const handleGetPolData = async () => {
+        const queryParams = {
+            insurancePolicyIds: polDetails?.policyIds[0],
+            page: 1,
+            'page-size': 20,
+        }
+        try {
+            const response = await polList('', queryParams);
+            setPolData(response?.data?.Policies)
+        } catch (err) {
+            showNotification.ERROR(err);
+        }
+    };
+
+    const handleGetConsentData = async () => {
+        try {
+            const response = await consentList('', {}, {
+                id: polDetails?.policyIds[0],
+            });
+            const temp = response?.data?.consentBody?.Data?.Permissions
+            const permissionObject = Object.fromEntries(temp.map(key => [key, true]));
+            setConcentData(permissionObject)
+        } catch (err) {
+            showNotification.ERROR(err);
+        }
+    };
+
+    useEffect(() => {
+        handleGetPolData()
+        handleGetConsentData()
+    }, [])
+
 
     return (
         <>
             <div className='select_policy'>
-                <SelectPolicy />
+                {polData?.length > 0 &&
+                    <SelectPolicy polData={polData} />
+                }
             </div>
             <div className='select_policy'>
-                <ReviewBlock />
+                {concentData !== null &&
+                    <ReviewBlock concentData={concentData} />
+                }
             </div>
             <div className='date_block'>
                 <div className='flex items-center'>
@@ -32,9 +76,9 @@ const Stepper2 = () => {
             </div>
             <div className='btn_container_s2'>
                 <div className='main-btns'>
-                    <CancelButton onClick={() => dispatch(setStepperIndex(0))} />
+                    {/* <CancelButton onClick={() => dispatch(setStepperIndex(0))} /> */}
                     <AITareqButton onClick={() => {
-                        dispatch(setStepperIndex(0))
+                        dispatch(setStepperIndex(1))
                         navigate('/login')
                     }} />
                 </div>

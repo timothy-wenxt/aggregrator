@@ -4,22 +4,22 @@ import { CalendarDays } from 'lucide-react'
 import { tradingName, selectPolicy } from '../constants'
 import moment from 'moment'
 
-const SelectPolicy = () => {
+const SelectPolicy = ({ polData }) => {
     const formattedDate = moment().format('DD/MM/YYYY');
     return (
         <>
             <p className='title_text'>Select Policy(s) to share information with {tradingName}</p>
             <div className='card_structure'>
-                {selectPolicy?.map((item, index) => (
+                {polData?.map((item, index) => (
                     <div className='policy_cards' key={index}>
                         <div className='head'>
-                            <p className='main-text'>{item?.name} - {item?.number}</p>
+                            <p className='main-text'>{item?.VehicleType}</p>
                             <Checkbox className="custom-checkbox" />
                         </div>
-                        <p className='sub-text'>{item?.polNo}</p>
+                        <p className='sub-text'>{item?.PolicyNumber}</p>
                         <div className='head'>
                             <p className='sub-text'>Policy Expires</p>
-                            <p className='sub-text'>{item?.expires}</p>
+                            <p className='sub-text'>{item?.CoverEndDate}</p>
                         </div>
                     </div>
                 ))}

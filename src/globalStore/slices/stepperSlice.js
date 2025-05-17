@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    stepperIndex: 0,
+    stepperIndex: 1,
 };
 
 const StepperSlice = createSlice({
