@@ -112,7 +112,7 @@ const Stepper2 = () => {
                     }} />
                 </div>
                 <p className='footer_text'>Continue to
-                    <span> {LFIName} </span>
+                    <span> {polDetails?.companyName} </span>
                     to share your insurance policy information under these terms</p>
             </div>
             {jsonModal &&

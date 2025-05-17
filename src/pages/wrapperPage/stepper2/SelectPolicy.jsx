@@ -3,8 +3,10 @@ import { Checkbox } from 'antd';
 import { CalendarDays } from 'lucide-react';
 import { tradingName } from '../constants';
 import moment from 'moment';
+import { useSelector } from 'react-redux';
 
 const SelectPolicy = ({ polData, selectedPolicy, setSelectedPolicy }) => {
+    const polDetails = useSelector((state) => state?.polDetails?.policyDetails);
     const formattedDate = moment().format('DD/MM/YYYY');
 
     const handleCheckboxChange = (policyNumber) => {
@@ -16,7 +18,7 @@ const SelectPolicy = ({ polData, selectedPolicy, setSelectedPolicy }) => {
     return (
         <>
             <p className='title_text'>
-                Select Policy(s) to share information with {tradingName}
+                Select Policy(s) to share information with {polDetails?.companyName}
             </p>
             <div className='card_structure'>
                 {polData?.map((item, index) => (
