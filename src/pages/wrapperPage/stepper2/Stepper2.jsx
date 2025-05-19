@@ -31,7 +31,7 @@ const Stepper2 = () => {
     const handleGetPolListNew = async () => {
         setLoader(true)
         try {
-            const response = await polListNew();
+            const response = await polListNew('', { POL_CUST_CODE: polDetails?.customerId });
             if (response?.meta?.type === 'success') {
                 setPolData(response?.data)
             } else {

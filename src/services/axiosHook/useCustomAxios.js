@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-axios.defaults.baseURL = import.meta.env.WECORE_BASEURL;
+axios.defaults.baseURL = import.meta.env.WECORE_LOCALURL;
 
 const useCustomAxios = () => {
     const navigate = useNavigate();
