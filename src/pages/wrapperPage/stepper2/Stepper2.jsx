@@ -11,6 +11,7 @@ import useApiRequests from '../../../services/useApiRequests'
 import showNotification from '../../../components/notification/Notification'
 import JSONModal from './JSONModal'
 import Loader from '../../../components/loader/Loader'
+import { setPolDetails } from '../../../globalStore/slices/polDetailsSlice'
 
 const Stepper2 = () => {
     const dispatch = useDispatch();
@@ -64,7 +65,7 @@ const Stepper2 = () => {
             return;
         }
         try {
-            const response = await polDetailsJSON('', {}, { pol_no: selectedPolicy });
+            const response = await polDetailsJSON('', { pol_no: selectedPolicy });
             setJSONData(response)
             setJsonModal(true)
         } catch (err) {
@@ -83,6 +84,7 @@ const Stepper2 = () => {
         setJsonModal(false)
         if (JSONData?.meta?.type === 'success') {
             dispatch(setStepperIndex(1))
+            dispatch(setPolDetails(null))
             navigate('/login')
         }
     }

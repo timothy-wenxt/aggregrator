@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    policyDetails: '',
+    policyDetails: null,
 };
 
 const PolDetailsSlice = createSlice({

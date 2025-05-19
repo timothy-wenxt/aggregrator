@@ -12,19 +12,15 @@ const useCustomAxios = () => {
     const getCustomHeaders = (url) => {
         if (!url) return {};
 
-        if (url.includes('/motor-insurance-policies')) {
+        if (url.includes('https://52dqkv2bge.execute-api.us-east-1.amazonaws.com/')) {
             return {
-                'o3-provider-id': 'bank123',
-                'o3-caller-org-id': 'org456',
-                'o3-caller-client-id': 'client789',
-                'o3-caller-software-statement-id': 'stmt001',
-                'o3-api-uri': 'https://api.example.com/motor-insurance-policies',
-                'o3-api-operation': 'GET',
-                'o3-caller-interaction-id': 'off212',
-                'o3-ozone-interaction-id': 'odss1112',
-                'o3-consent-id': polDetails?.consentId,
-                'o3-psu-identifier': 'encoded-json',
-                'o3-is-caap-consent-operation': 'true',
+                "o3-provider-id": "UnionInsurance",
+                "o3-caller-org-id": "GargashInsuranceServices",
+                "o3-api-uri": "https://cbuae.wenxt.com/v3/motor-insurance-policies",
+                "o3-caller-interaction-id": "interaction-uae-1002",
+                "o3-ozone-interaction-id": "interaction-uae-1002",
+                "o3-consent-id": polDetails?.consentId,
+                "o3-psu-identifier": "eyJ1c2VySWQiOiAidXNlci11YWUtYWJjLTIzNCJ9"
             };
         }
         return {};
@@ -34,7 +30,8 @@ const useCustomAxios = () => {
     useEffect(() => {
         const requestInterceptor = axios.interceptors.request.use(
             config => {
-                const customHeaders = getCustomHeaders(config.url);
+                console.log("config : ", config.baseURL)
+                const customHeaders = getCustomHeaders(config.baseURL);
                 config.headers = {
                     ...config.headers,
                     ...customHeaders,
