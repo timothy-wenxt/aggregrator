@@ -1,11 +1,3 @@
-/* General reset for body and html */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-/* Container Styles */
 .redirect-container {
   height: 100vh;
   display: flex;
@@ -16,60 +8,128 @@ body, html {
   color: white;
   text-align: center;
   gap: 20px;
-  padding: 10px;  /* To prevent overflow on small screens */
-}
+  padding: 20px;
 
-/* Text field styling */
-.text {
-  background-color: white;
-  border-radius: 30px;
-  border: none;
-  width: 100%;  /* Ensures text fields occupy full width on small screens */
-  max-width: 350px;  /* Limits max width on large screens */
-}
-
-/* Login button styles */
-.loginbtn {
-  width: 100%;
-  max-width: 200px; /* Max width for button */
-  height: 40px;
-  border-radius: 30px !important;
-  font-weight: bold !important;
-}
-
-.summary-btn{
-  background-color: green !important;
-}
-
-/* Add responsiveness to button and input fields */
-@media (max-width: 768px) {
-  .redirect-container {
-    padding: 20px; /* Adds padding on smaller screens */
-  }
-
-  .text {
-    width: 100%;  /* Ensures full width on smaller screens */
-    max-width: 100%;
-  }
-
-  .loginbtn {
-    width: 100%;  /* Makes the button full width */
-    max-width: 100%; /* Button width on smaller screens */
-  }
-}
-
-/* For very small screens, like mobile devices */
-@media (max-width: 480px) {
-  .redirect-container {
+  @media (max-width: 480px) {
     padding: 15px;
   }
 
-  .text {
-    max-width: 100%;
-    margin-bottom: 15px; /* Adds some spacing between the fields on mobile */
+  .navigation-buttons {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 15px;
+    }
   }
 
-  .loginbtn {
-    height: 45px;  /* Adjust button height for better visibility on mobile */
+  .login-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+
+    @media (max-width: 768px) {
+      max-width: 90%;
+      padding: 20px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 15px;
+    }
+  }
+
+  .login-title {
+    color: white !important;
+    margin-bottom: 10px !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+  }
+
+  .login-form {
+    width: 100%;
+  }
+
+  .form-item {
+    margin-bottom: 10px !important;
+
+    @media (max-width: 480px) {
+      margin-bottom: 15px !important;
+    }
+  }
+
+  .ant-form-item-label {
+    text-align: left !important;
+    margin-bottom: 0px !important;
+    padding: 0 !important;
+
+    >label {
+      color: white !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      margin-bottom: 0px !important;
+
+      @media (max-width: 480px) {
+        font-size: 13px !important;
+      }
+    }
+  }
+
+  .input-field {
+    height: 40px;
+    border-radius: 30px !important;
+    border: none !important;
+    background-color: white !important;
+    padding: 4px 15px !important;
+
+    &.ant-input-affix-wrapper {
+      padding: 0 11px !important;
+
+      >input.ant-input {
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  .login-button {
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 30px !important;
+    font-weight: bold !important;
+    background-color: #00C8AF !important;
+    border-color: #00C8AF !important;
+
+    &:hover {
+      background-color: #00a192 !important;
+      border-color: #00a192 !important;
+    }
+  }
+
+  .summary-btn {
+    background-color: green !important;
+    border-color: green !important;
+    border-radius: 4px !important;
+    height: 32px;
+    min-width: 100px;
+
+    &:hover {
+      background-color: #006400 !important;
+      border-color: #006400 !important;
+    }
+  }
+
+  .ant-form-item-explain-error {
+    color: #ff4d4f !important;
+    font-size: 12px !important;
+    margin-left: 10px !important;
+    text-align: left !important;
   }
 }

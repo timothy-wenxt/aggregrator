@@ -1,32 +1,44 @@
-import React, { useState } from 'react';
-import { Button, TextField } from '@mui/material';
-import { Typography } from 'antd';
+import React from 'react';
+import { Form, Input, Button, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 import { setStepperIndex } from '../../globalStore/slices/stepperSlice';
-import './LoginScreen.scss';
 import useApiRequests from '../../services/useApiRequests';
 import { setPolDetails } from '../../globalStore/slices/polDetailsSlice';
 import showNotification from '../../components/notification/Notification';
+import './LoginScreen.scss';
+
+const { Title } = Typography;
+
+// Validation schema using Yup
+const validationSchema = Yup.object().shape({
+  login: Yup.string()
+    .required('Username is required'),
+  password: Yup.string()
+    .required('Password is required')
+    .min(6, 'Password must be at least 6 characters'),
+});
 
 const LoginScreen = () => {
   const login = useApiRequests('login', 'POST');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Form state
-  const [formData, setFormData] = useState({ login: '', password: '' });
-
-  const handleInputChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+  // Configure Ant Design form layout for visible labels
+  const formItemLayout = {
+    labelCol: {
+      span: 24 // Full width labels that sit above inputs
+    },
+    wrapperCol: {
+      span: 24 // Full width inputs
+    },
   };
 
-  const handleLogin = async () => {
+  const handleLogin = async (values, { setSubmitting }) => {
     try {
-      const response = await login(formData);
+      const response = await login(values);
       if (response?.message === 'Login successful') {
         dispatch(setPolDetails(response));
         dispatch(setStepperIndex(1));
@@ -34,65 +46,98 @@ const LoginScreen = () => {
       }
     } catch (err) {
       showNotification.ERROR(err);
+    } finally {
+      setSubmitting(false);
     }
   };
 
   return (
     <div className="redirect-container">
-      <div style={{ display: "flex", gap: "30px" }}>
-        <Button className='summary-btn' onClick={() => navigate('/planDetails')} variant='contained'>Summary</Button>
-        <Button className='summary-btn' onClick={() => navigate('/dashboard')} variant='contained'>Dashboard</Button>
+      <div className="navigation-buttons">
+        <Button
+          className='summary-btn'
+          onClick={() => navigate('/planDetails')}
+          type='primary'
+        >
+          Summary
+        </Button>
+        <Button
+          className='summary-btn'
+          onClick={() => navigate('/dashboard')}
+          type='primary'
+        >
+          Dashboard
+        </Button>
       </div>
 
-      <>
-        <Typography style={{ fontSize: "15px", color: "white", fontWeight: "normal" }}>AGGREGATOR LOGIN</Typography>
+      <div className="login-form-container">
+        <Title level={5} className="login-title">AGGREGATOR LOGIN</Title>
 
-        <TextField
-          className='text'
-          label="login"
-          name="login"
-          variant="outlined"
-          type="login"
-          required
-          size='small'
-          value={formData.login}
-          onChange={handleInputChange}
-          sx={{
-            borderRadius: '30px',
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '30px',
-            },
-          }}
-        />
-
-        <TextField
-          className='text'
-          label="Password"
-          name="password"
-          variant="outlined"
-          type="password"
-          required
-          size='small'
-          value={formData.password}
-          onChange={handleInputChange}
-          sx={{
-            borderRadius: '30px',
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '30px',
-            },
-          }}
-        />
-
-        <Button
-          onClick={handleLogin}
-          variant='contained'
-          size='small'
-          className='loginbtn'
-          style={{ backgroundColor: "#00C8AF" }}
+        <Formik
+          initialValues={{ login: '', password: '' }}
+          validationSchema={validationSchema}
+          onSubmit={handleLogin}
         >
-          LOGIN
-        </Button>
-      </>
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting,
+          }) => (
+            <Form
+              onFinish={handleSubmit}
+              className="login-form"
+              {...formItemLayout}
+            >
+              <Form.Item
+                name="login"
+                label="Username"
+                validateStatus={errors.login && touched.login ? 'error' : ''}
+                help={touched.login && errors.login}
+                className="form-item"
+              >
+                <Input
+                  name="login"
+                  value={values.login}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className="input-field"
+                />
+              </Form.Item>
+
+              <Form.Item
+                name="password"
+                label="Password"
+                validateStatus={errors.password && touched.password ? 'error' : ''}
+                help={touched.password && errors.password}
+                className="form-item"
+              >
+                <Input.Password
+                  name="password"
+                  value={values.password}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className="input-field"
+                />
+              </Form.Item>
+
+              <Form.Item className="form-item">
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  className="login-button"
+                  loading={isSubmitting}
+                >
+                  LOGIN
+                </Button>
+              </Form.Item>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </div>
   );
 };

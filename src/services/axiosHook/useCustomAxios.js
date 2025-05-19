@@ -14,8 +14,8 @@ const useCustomAxios = () => {
 
         if (url.includes('https://52dqkv2bge.execute-api.us-east-1.amazonaws.com/')) {
             return {
-                'o3-provider-id': 'UnionInsurance',
-                'o3-caller-org-id': 'GargashInsuranceServices',
+                'o3-provider-id': 'salamaInsurance',
+                'o3-caller-org-id': 'LibertyInsuranceBrokers',
                 'o3-caller-client-id': 'client789',
                 'o3-caller-software-statement-id': 'stmt001',
                 'o3-api-uri': 'https://cbuae.wenxt.com/v3/motor-insurance-policies',
