@@ -14,13 +14,17 @@ const useCustomAxios = () => {
 
         if (url.includes('https://52dqkv2bge.execute-api.us-east-1.amazonaws.com/')) {
             return {
-                "o3-provider-id": "UnionInsurance",
-                "o3-caller-org-id": "GargashInsuranceServices",
-                "o3-api-uri": "https://cbuae.wenxt.com/v3/motor-insurance-policies",
-                "o3-caller-interaction-id": "interaction-uae-1002",
-                "o3-ozone-interaction-id": "interaction-uae-1002",
-                "o3-consent-id": polDetails?.consentId,
-                "o3-psu-identifier": "eyJ1c2VySWQiOiAidXNlci11YWUtYWJjLTIzNCJ9"
+                'o3-provider-id': 'UnionInsurance',
+                'o3-caller-org-id': 'GargashInsuranceServices',
+                'o3-caller-client-id': 'client789',
+                'o3-caller-software-statement-id': 'stmt001',
+                'o3-api-uri': 'https://cbuae.wenxt.com/v3/motor-insurance-policies',
+                'o3-api-operation': 'GET',
+                'o3-caller-interaction-id': 'interaction-uae-1002',
+                'o3-ozone-interaction-id': 'interaction-uae-1002',
+                'o3-consent-id': polDetails?.consentId,
+                'o3-psu-identifier': 'eyJ1c2VySWQiOiAidXNlci11YWUtYWJjLTIzNCJ9',
+                'o3-is-caap-consent-operation': 'true',
             };
         }
         return {};
