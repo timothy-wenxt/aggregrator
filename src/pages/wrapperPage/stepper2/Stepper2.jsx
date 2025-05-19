@@ -3,20 +3,20 @@ import SelectPolicy from './SelectPolicy'
 import ReviewBlock from './ReviewBlock'
 import { CalendarDays } from 'lucide-react'
 import AITareqButton from '../../../components/AITareqButton/AITareqButton'
-import CancelButton from '../../../components/cancelButton/CancelButton'
 import { useNavigate } from 'react-router-dom'
-import { LFIName } from '../constants'
 import moment from 'moment'
 import { useDispatch, useSelector } from 'react-redux'
 import { setStepperIndex } from '../../../globalStore/slices/stepperSlice'
 import useApiRequests from '../../../services/useApiRequests'
 import showNotification from '../../../components/notification/Notification'
 import JSONModal from './JSONModal'
+import Loader from '../../../components/loader/Loader'
 
 const Stepper2 = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const polList = useApiRequests('polList', 'GET');
+    const polDetailsJSON = useApiRequests('polDetailsJSON', 'GET');
+    const polListNew = useApiRequests('polListMain', 'GET');
     const consentList = useApiRequests('consentList', 'GET');
     const formattedDate = moment().format('DD/MM/YYYY');
     const polDetails = useSelector((state) => state?.polDetails?.policyDetails);
@@ -25,18 +25,21 @@ const Stepper2 = () => {
     const [selectedPolicy, setSelectedPolicy] = useState(null);
     const [jsonModal, setJsonModal] = useState(false);
     const [JSONData, setJSONData] = useState(null)
+    const [loader, setLoader] = useState(false)
 
-    const handleGetPolData = async () => {
-        const queryParams = {
-            insurancePolicyIds: polDetails?.policyIds[0],
-            page: 1,
-            'page-size': 20,
-        }
+    const handleGetPolListNew = async () => {
+        setLoader(true)
         try {
-            const response = await polList('', queryParams);
-            setPolData(response?.data?.Policies)
+            const response = await polListNew();
+            if (response?.meta?.type === 'success') {
+                setPolData(response?.data)
+            } else {
+                showNotification.ERROR(response?.meta?.message);
+            }
         } catch (err) {
             showNotification.ERROR(err);
+        } finally {
+            setLoader(false)
         }
     };
 
@@ -54,33 +57,39 @@ const Stepper2 = () => {
     };
 
     const handleSubmit = async () => {
+        setLoader(true)
         if (!selectedPolicy) {
+            setLoader(false)
             showNotification.WARNING("Please select a policy");
             return;
         }
         try {
-            const response = await polList('', {}, { selectedPolicy });
+            const response = await polDetailsJSON('', {}, { pol_no: selectedPolicy });
             setJSONData(response)
             setJsonModal(true)
-            console.log("response", response);
         } catch (err) {
             showNotification.ERROR(err);
+        } finally {
+            setLoader(false)
         }
     };
 
     useEffect(() => {
-        handleGetPolData()
         handleGetConsentData()
+        handleGetPolListNew()
     }, [])
 
     const handleClose = () => {
         setJsonModal(false)
-        dispatch(setStepperIndex(1))
-        navigate('/login')
+        if (JSONData?.meta?.type === 'success') {
+            dispatch(setStepperIndex(1))
+            navigate('/login')
+        }
     }
 
     return (
         <>
+            {loader && <Loader />}
             <div className='select_policy'>
                 {polData?.length > 0 &&
                     <SelectPolicy

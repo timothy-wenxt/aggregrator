@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
 import { Checkbox } from 'antd';
 import { CalendarDays } from 'lucide-react';
-import { tradingName } from '../constants';
 import moment from 'moment';
 import { useSelector } from 'react-redux';
 
@@ -34,7 +32,7 @@ const SelectPolicy = ({ polData, selectedPolicy, setSelectedPolicy }) => {
                         <p className='sub-text'>{item?.PolicyNumber}</p>
                         <div className='head'>
                             <p className='sub-text'>Policy Expires</p>
-                            <p className='sub-text'>{item?.CoverEndDate}</p>
+                            <p className='sub-text'>{moment(item?.CoverEndDate).format("DD/MM/YYYY")}</p>
                         </div>
                     </div>
                 ))}
